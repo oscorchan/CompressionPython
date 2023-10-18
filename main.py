@@ -30,4 +30,19 @@ def compression(liste, dictionnaire):
             
     return result
 
-print(compression(decoupage(chaine), dico))
+def decompression(liste, dictionnaire):
+    dictionnaire = inverserDictionnaire(dictionnaire)
+    result = []
+    for i in liste:
+        if (i in dictionnaire):
+            result.append(dictionnaire.get(i))
+        else:
+            result.append(i)
+            
+    return result
+
+def inverserDictionnaire(dictionnaire):
+    inverse_dict = dict((v, k) for k, v in dictionnaire.items())
+    return inverse_dict
+
+print(decompression(compression(decoupage(chaine), dico), dico))
