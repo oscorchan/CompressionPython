@@ -1,4 +1,5 @@
 chaine = "Ceci est un texte qui est un faux-texte"
+texte2 = "Bonjour, je m'apelle oscar et j'aime beaucoup les chips. Les ananas sont délicieux. I ls cat"
 
 dico = {'texte': '1',
  'lorem': '2',
@@ -45,7 +46,7 @@ def inverserDictionnaire(dictionnaire):
     inverse_dict = dict((v, k) for k, v in dictionnaire.items())
     return inverse_dict
 
-def creerDictionnaire(liste):
+def creerDictionnaireBasique(liste):
     n = 0
     dictionnaire = {}
     for i in liste:
@@ -55,4 +56,16 @@ def creerDictionnaire(liste):
         
     return dictionnaire
 
-print(creerDictionnaire(decoupage(chaine)))
+def creerDictionnaireAvance(liste):
+    n = 0
+    dictionnaire = {}
+    for i in liste:
+        strN = str(n)
+        if i not in dictionnaire and len(i) > len(strN):
+            dictionnaire[i] = n
+            n = n+1
+            
+    return dictionnaire
+    
+
+print(creerDictionnaireAvance(decoupage(texte2)))
