@@ -45,4 +45,14 @@ def inverserDictionnaire(dictionnaire):
     inverse_dict = dict((v, k) for k, v in dictionnaire.items())
     return inverse_dict
 
-print(decompression(compression(decoupage(chaine), dico), dico))
+def creerDictionnaire(liste):
+    n = 0
+    dictionnaire = {}
+    for i in liste:
+        if i not in dictionnaire:
+            dictionnaire[i] = n
+            n += 1
+        
+    return dictionnaire
+
+print(creerDictionnaire(decoupage(chaine)))
