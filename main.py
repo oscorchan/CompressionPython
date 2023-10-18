@@ -36,9 +36,7 @@ def assignation(liste, dictionnaire):
 def assignationInverse(liste, dictionnaire):
     dictionnaire = inverserDictionnaire(dictionnaire)
     result = []
-    print(dictionnaire)
     for i in liste:
-        print(i)
         if (i in dictionnaire):
             result.append(dictionnaire.get(i))
         else:
@@ -91,14 +89,16 @@ def compresser(texte):
     return texteCompresse, dictionnaire
 
 def decompresser(texte, dictionnaire):
-    print(dictionnaire)
     liste = decoupage(texte)
     listeDecompressee = assignationInverse(liste, dictionnaire)
     texteDecompresse = reconstitution(listeDecompressee)
     
-    print(texteDecompresse)
     return texteDecompresse
 
-texteCompresse, dictionnaire = compresser(texte3)
+texteCompresse, dictionnaire = compresser(texte4)
 
-decompresser(texteCompresse, dictionnaire)
+print(texteCompresse)
+
+texteDecompresse = decompresser(texteCompresse, dictionnaire)
+
+print(texteDecompresse)
